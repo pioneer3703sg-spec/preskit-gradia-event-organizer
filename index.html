@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Press Kit — Gradia Event Organizer</title>
+<style>
+:root {
+  --black: #111010;
+  --gold: #D4AF37;
+  --gold-light: #EDD97A;
+  --gold-dim: rgba(212,175,55,0.12);
+  --white: #F8F6F0;
+  --gray: #888;
+  --gray-light: #C8C4BC;
+  --surface: #1A1816;
+  --surface2: #221F1C;
+  --border: rgba(212,175,55,0.2);
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --black: #111010;
+    --white: #F8F6F0;
+    --surface: #1A1816;
+    --surface2: #221F1C;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  background: rgba(17,16,16,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0 2rem;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-hex {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 700;
+  color: var(--black);
+}
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+.nav-links {
+  display: flex; gap: 0; list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 0 14px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(212,175,55,0.08) 0%, transparent 70%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+}
+.hero-badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  padding: 5px 18px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.hero-hex {
+  width: 90px; height: 90px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 36px; font-weight: 700;
+  color: var(--black);
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 48px rgba(212,175,55,0.3);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: var(--white);
+  margin-bottom: .5rem;
+}
+.hero-sub {
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--gray-light);
+  margin-bottom: 2.5rem;
+}
+.hero-divider {
+  display: flex; align-items: center; gap: 12px;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.hero-divider span { width: 48px; height: 1px; background: var(--border); }
+.hero-divider i { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+.btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  padding: 11px 28px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity .2s;
+}
+.btn-gold:hover { opacity: .85; }
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 11px 28px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color .2s;
+}
+.btn-outline:hover { border-color: var(--gold); }
+
+/* SECTIONS */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  color: var(--white);
+}
+
+/* FACT SHEET */
+.fact-sheet {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+}
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.fact-item {
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.fact-item:last-child { border-right: none; }
+.fact-label { font-size: 10px; letter-spacing: 3px; color: var(--gold); margin-bottom: 6px; }
+.fact-val { font-size: 14px; color: var(--white); line-height: 1.5; }
+.fact-val strong { font-size: 22px; font-family: var(--font-display); display: block; }
+
+/* TEAM */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.team-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform .3s;
+}
+.team-card:hover::before { transform: scaleX(1); }
+.team-av {
+  width: 60px; height: 60px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: var(--black);
+  margin: 0 auto 1rem;
+}
+.team-name { font-family: var(--font-display); font-size: 15px; margin-bottom: 4px; }
+.team-role { font-size: 11px; color: var(--gold); letter-spacing: 1.5px; margin-bottom: 8px; }
+.team-desc { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+/* BRAND */
+.brand-row { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+.color-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.chip { text-align: center; }
+.chip-color { width: 56px; height: 56px; border-radius: 4px; margin-bottom: 6px; }
+.chip-name { font-size: 10px; color: var(--gray); }
+.chip-hex { font-size: 11px; color: var(--white); font-family: monospace; }
+.quote-block {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  background: var(--gold-dim);
+  margin: 2rem 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gray-light);
+}
+
+/* CONTACT */
+.contact-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.contact-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+}
+.contact-block h4 {
+  font-size: 10px; letter-spacing: 3px; color: var(--gold);
+  margin-bottom: 1rem; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.contact-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.contact-icon {
+  width: 28px; height: 28px; flex-shrink: 0;
+  background: var(--gold-dim); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--gold);
+}
+.contact-row p { font-size: 11px; color: var(--gray); margin-bottom: 2px; }
+.contact-row span { font-size: 13px; color: var(--white); }
+.social-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.social-chip {
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+}
+footer p { font-size: 12px; color: var(--gray); }
+footer span { color: var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { min-height: 80vh; }
+  section { padding: 3.5rem 1.25rem; }
+  .fact-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .fact-grid { grid-template-columns: 1fr; }
+  .fact-item { border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-hex">G</div>
+      <span class="nav-name">GRADIA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#factsheet">Fact Sheet</a></li>
+      <li><a href="#about">Profil</a></li>
+      <li><a href="#team">Tim</a></li>
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#contact">Kontak PR</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">PRESS KIT — 2025</div>
+    <div class="hero-hex">G</div>
+    <h1>GRADIA</h1>
+    <p class="hero-sub">EVENT ORGANIZER</p>
+    <p class="hero-tagline">Crafting Unforgettable Moments</p>
+    <div class="hero-divider">
+      <span></span><i></i><span></span>
+    </div>
+    <div class="btn-group">
+      <a href="#factsheet" class="btn-gold">FACT SHEET</a>
+      <a href="#contact" class="btn-outline">KONTAK PR</a>
+    </div>
+  </div>
+</section>
+
+<!-- FACT SHEET -->
+<section id="factsheet" style="background:var(--surface2)">
+  <div class="container">
+    <div class="section-label">FACT SHEET</div>
+    <h2>Data Perusahaan</h2>
+    <div class="fact-sheet">
+      <div class="fact-grid">
+        <div class="fact-item">
+          <div class="fact-label">NAMA RESMI</div>
+          <div class="fact-val">Gradia Event Organizer</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">TAHUN BERDIRI</div>
+          <div class="fact-val"><strong>2025</strong></div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">CEO / PENDIRI</div>
+          <div class="fact-val">Zihan Nuraulia</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">KANTOR PUSAT</div>
+          <div class="fact-val">Jl. Jayaraga, Tarogong Kidul<br>Kab. Garut, Jawa Barat 44151</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">INDUSTRI</div>
+          <div class="fact-val">Event Management & Organizer</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">LAYANAN UTAMA</div>
+          <div class="fact-val">Corporate Event · Wedding · Concert · Exhibition · Virtual Event</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">WEBSITE</div>
+          <div class="fact-val">www.gradiaevent.com</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">MEDIA SOSIAL</div>
+          <div class="fact-val">@gradiaevent.id</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">TENTANG KAMI</div>
+    <h2>Profil Perusahaan</h2>
+    <div style="max-width:700px">
+      <p style="color:var(--gray-light);margin-bottom:1.25rem">
+        Gradia Event Organizer berdiri pada tahun 2025 atas dasar kepekaan terhadap kebutuhan nyata — bahwa industri event di Indonesia terus tumbuh, namun penyelenggara yang benar-benar profesional, kreatif, dan terpercaya masih sangat dibutuhkan.
+      </p>
+      <p style="color:var(--gray-light);margin-bottom:1.25rem">
+        Dipimpin oleh <strong style="color:var(--white)">Zihan Nuraulia</strong>, Gradia Event hadir sebagai mitra strategis bagi individu, komunitas, dan korporasi dalam mewujudkan setiap momen menjadi pengalaman yang berkesan dan bermakna.
+      </p>
+      <div class="quote-block">
+        "Kami tidak hanya mengelola event. Kami menciptakan kenangan yang tak terlupakan."
+        <br><span style="font-size:12px;font-style:normal;color:var(--gold);margin-top:8px;display:block">— Zihan Nuraulia, CEO Gradia Event Organizer</span>
+      </div>
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem">
+        <div>
+          <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold)">5+</div>
+          <div style="font-size:12px;color:var(--gray)">Kategori Layanan</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold)">2025</div>
+          <div style="font-size:12px;color:var(--gray)">Tahun Berdiri</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold)">Garut</div>
+          <div style="font-size:12px;color:var(--gray)">Berbasis di</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="background:var(--surface2)">
+  <div class="container">
+    <div class="section-label">MANAJEMEN</div>
+    <h2>Tim Eksekutif</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-av">ZN</div>
+        <div class="team-name">Zihan Nuraulia</div>
+        <div class="team-role">CHIEF EXECUTIVE OFFICER</div>
+        <div class="team-desc">Pendiri & pemimpin strategis Gradia Event. Membangun perusahaan dengan visi menjadi EO terpercaya di Indonesia.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-av">DS</div>
+        <div class="team-name">Dinda Salsabila</div>
+        <div class="team-role">CREATIVE DIRECTOR</div>
+        <div class="team-desc">Mengawal seluruh aspek kreatif dan konsep visual setiap event agar berkesan dan unik.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-av">RP</div>
+        <div class="team-name">Rizky Putra</div>
+        <div class="team-role">OPERATIONS DIRECTOR</div>
+        <div class="team-desc">Memastikan kelancaran operasional, logistik, dan eksekusi lapangan di setiap penyelenggaraan event.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-av">NF</div>
+        <div class="team-name">Nadia Fitriani</div>
+        <div class="team-role">PR & COMM. DIRECTOR</div>
+        <div class="team-desc">Mengelola hubungan media, publikasi, dan reputasi Gradia Event kepada seluruh pemangku kepentingan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section id="brand">
+  <div class="container">
+    <div class="section-label">IDENTITAS VISUAL</div>
+    <h2>Brand Guidelines</h2>
+    <div style="margin-bottom:2.5rem">
+      <p style="font-size:12px;color:var(--gray);margin-bottom:1.25rem">PALET WARNA RESMI</p>
+      <div class="color-chips">
+        <div class="chip">
+          <div class="chip-color" style="background:#111010;border:1px solid #333"></div>
+          <div class="chip-name">Hitam Utama</div>
+          <div class="chip-hex">#111010</div>
+        </div>
+        <div class="chip">
+          <div class="chip-color" style="background:#D4AF37"></div>
+          <div class="chip-name">Emas Aksen</div>
+          <div class="chip-hex">#D4AF37</div>
+        </div>
+        <div class="chip">
+          <div class="chip-color" style="background:#F8F6F0;border:1px solid #333"></div>
+          <div class="chip-name">Putih Bersih</div>
+          <div class="chip-hex">#F8F6F0</div>
+        </div>
+        <div class="chip">
+          <div class="chip-color" style="background:#888888"></div>
+          <div class="chip-name">Abu Pelengkap</div>
+          <div class="chip-hex">#888888</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);padding:1.5rem;max-width:600px">
+      <p style="font-size:10px;letter-spacing:3px;color:var(--gold);margin-bottom:1rem">TIPOGRAFI RESMI</p>
+      <div style="margin-bottom:1rem">
+        <div style="font-family:Georgia,serif;font-size:28px;color:var(--white)">GRADIA</div>
+        <div style="font-size:11px;color:var(--gray)">Georgia / Display — Brand Name & Heading</div>
+      </div>
+      <div>
+        <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--gray-light)">Event Organizer — Body & Supporting Text</div>
+        <div style="font-size:11px;color:var(--gray)">Helvetica Neue / Arial — Body & Caption</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PR -->
+<section id="contact" style="background:var(--surface2)">
+  <div class="container">
+    <div class="section-label">MEDIA RELATIONS</div>
+    <h2>Kontak PR & Press Center</h2>
+    <div class="contact-cols">
+      <div class="contact-block">
+        <h4>KANTOR & LOKASI</h4>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <p>Kantor Pusat</p>
+            <span>Jl. Jayaraga, Tarogong Kidul, Kab. Garut, Jawa Barat 44151</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <p>Jam Operasional</p>
+            <span>Senin – Sabtu, 08.00 – 17.00 WIB</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-block">
+        <h4>KONTAK MEDIA</h4>
+        <div class="contact-row">
+          <div class="contact-icon">📧</div>
+          <div>
+            <p>Email Pers / Media</p>
+            <span>press@gradiaevent.com</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📧</div>
+          <div>
+            <p>Email Umum</p>
+            <span>hello@gradiaevent.com</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <p>Hotline PR</p>
+            <span>+62 812-0000-2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-block">
+        <h4>MEDIA SOSIAL</h4>
+        <div class="contact-row">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <p>Website Resmi</p>
+            <span>www.gradiaevent.com</span>
+          </div>
+        </div>
+        <div class="social-chips">
+          <div class="social-chip">Instagram</div>
+          <div class="social-chip">LinkedIn</div>
+          <div class="social-chip">WhatsApp</div>
+          <div class="social-chip">YouTube</div>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:var(--gray)">@gradiaevent.id di semua platform</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;background:var(--gold-dim);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.25rem 1.5rem">
+      <p style="font-size:12px;color:var(--gray);margin-bottom:4px">BOILERPLATE RESMI</p>
+      <p style="font-size:13px;color:var(--gray-light);line-height:1.7">
+        Gradia Event Organizer adalah perusahaan penyelenggara event profesional yang berdiri sejak 2025. Dengan komitmen menghadirkan pengalaman tak terlupakan, Gradia Event melayani berbagai kebutuhan event — dari skala personal hingga korporat — berbasis di Garut, Jawa Barat. Untuk informasi media: <span style="color:var(--gold)">press@gradiaevent.com</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="nav-hex" style="margin:0 auto 1rem">G</div>
+  <p><span>GRADIA EVENT ORGANIZER</span> — Press Kit 2025</p>
+  <p style="margin-top:6px">Jl. Jayaraga, Kab. Garut, Jawa Barat · press@gradiaevent.com</p>
+  <p style="margin-top:12px;font-size:11px">Dokumen ini bersifat resmi dan ditujukan untuk keperluan media dan jurnalistik.</p>
+</footer>
+
+</body>
+</html>
